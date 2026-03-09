@@ -15,6 +15,7 @@ import { buildJDSystem, buildJDUser } from "./utils/JDPrompt";
 import { buildToolSystem, buildToolUser } from "./utils/ToolJDPrompt";
 import { ResumePreview } from "./components/ResumePreview";
 import { convertMarkdownToHtml } from "./utils/Utils";
+import Header from "./components/Header";
 
 export default function App() {
 
@@ -27,6 +28,7 @@ export default function App() {
   const [error, setError] = useState("");
   const [copied, setCopied] = useState(false);
   const [showDL, setShowDL] = useState(false);
+  const [generationTime, setGenerationTime] = useState(null);
 
   const isJD = mode === "jd";
 
@@ -97,6 +99,10 @@ export default function App() {
 
     setIsGenerating(true);
     setGeneratedResume("");
+
+    // START TIMER
+    const startTime = performance.now();
+
     // ===== FORCE MODE DETECTION - READ ONCE =====
     const currentMode = mode;  // Capture mode once
     const currentIsJD = currentMode === "jd";
@@ -159,9 +165,18 @@ export default function App() {
       }
     } catch (e) {
       setError(e.message || "Generation failed. Check your API key.");
-    }
+    } finally {
+      // STOP TIMER (Placed in finally to ensure it stops even on error)
+      const endTime = performance.now();
+      const durationSeconds = ((endTime - startTime) / 1000).toFixed(2);
+      
+      console.log(`=== GENERATION COMPLETE ===`);
+      console.log(`Total Time Taken: ${durationSeconds} seconds`);
+      
+      setGenerationTime(durationSeconds); // Store it in state
 
-    setIsGenerating(false);
+      setIsGenerating(false);
+    }
   };
 
   return (
@@ -178,51 +193,7 @@ export default function App() {
         ::-webkit-scrollbar-thumb{background:#3b82f6;border-radius:3px}
       `}</style>
 
-      <header className="no-print bg-slate-950 border-b border-slate-800 flex justify-between items-center px-6 py-4 shadow-lg">
-        <div className="flex items-center gap-3">
-          <div className="p-2.5 rounded-lg bg-gradient-to-br from-blue-600 to-indigo-600">
-            <Briefcase size={20} color="white" />
-          </div>
-          <div>
-            <div className="font-bold text-lg text-white">
-              Resume Builder <span className="text-blue-500">— Keerthana Hariharan</span>
-            </div>
-            <div className="text-xs text-slate-400">
-              4 Companies · 9+ Years · GCP & AWS Certified
-            </div>
-          </div>
-        </div>
-
-        <div className="flex items-center gap-4">
-          <span className={`text-sm font-semibold ${isJD ? "text-blue-500" : "text-slate-500"}`}>
-            JD Mode
-          </span>
-          <button
-            onClick={() => {
-              setMode(isJD ? "tool" : "jd");
-              setGeneratedResume("");
-              setError("");
-            }}
-            className="bg-transparent border-none cursor-pointer p-0 flex transition-transform hover:scale-110"
-          >
-            {isJD ? (
-              <ToggleLeft size={40} color="#3b82f6" />
-            ) : (
-              <ToggleRight size={40} color="#3b82f6" />
-            )}
-          </button>
-          <span className={`text-sm font-semibold ${!isJD ? "text-blue-500" : "text-slate-500"}`}>
-            Tool Mode
-          </span>
-
-          <div className={`px-3 py-1 rounded-full text-xs font-bold ${isJD
-              ? "bg-blue-900/40 text-blue-400 border border-blue-700"
-              : "bg-indigo-900/40 text-indigo-400 border border-indigo-700"
-            }`}>
-            {isJD ? "JD MODE ACTIVE" : "TOOL MODE ACTIVE"}
-          </div>
-        </div>
-      </header>
+      <Header isJD={isJD} setMode={setMode} setGeneratedResume={setGeneratedResume} setError={setError} timeTook={generationTime}/>
 
       <div className="no-print px-6 py-2 text-xs bg-slate-950 border-b border-slate-800 text-slate-400">
         {isJD
