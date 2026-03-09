@@ -28,7 +28,8 @@ export default function App() {
   const [error, setError] = useState("");
   const [copied, setCopied] = useState(false);
   const [showDL, setShowDL] = useState(false);
-  const [generationTime, setGenerationTime] = useState(null);
+  const [isTimerActive, setIsTimerActive] = useState(false);
+  const [resetTimer, setResetTimer] = useState(0);
 
   const isJD = mode === "jd";
 
@@ -100,8 +101,9 @@ export default function App() {
     setIsGenerating(true);
     setGeneratedResume("");
 
-    // START TIMER
-    const startTime = performance.now();
+    // 1. Reset and Start
+    setResetTimer(prev => prev + 1);
+    setIsTimerActive(true);
 
     // ===== FORCE MODE DETECTION - READ ONCE =====
     const currentMode = mode;  // Capture mode once
@@ -123,7 +125,8 @@ export default function App() {
     // ===== END DEBUG =====
 
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY! });
+      setIsTimerActive(true);
+      const ai = new GoogleGenAI({ apiKey: "AIzaSyA0MpxYHWGeTs0O-Axbd1cWEZi_xgLt22s" });
       const response = await ai.models.generateContent({
         model: "gemini-3-flash-preview",
         contents: [{
@@ -166,15 +169,7 @@ export default function App() {
     } catch (e) {
       setError(e.message || "Generation failed. Check your API key.");
     } finally {
-      // STOP TIMER (Placed in finally to ensure it stops even on error)
-      const endTime = performance.now();
-      const durationSeconds = ((endTime - startTime) / 1000).toFixed(2);
-      
-      console.log(`=== GENERATION COMPLETE ===`);
-      console.log(`Total Time Taken: ${durationSeconds} seconds`);
-      
-      setGenerationTime(durationSeconds); // Store it in state
-
+      setIsTimerActive(false);
       setIsGenerating(false);
     }
   };
@@ -193,7 +188,7 @@ export default function App() {
         ::-webkit-scrollbar-thumb{background:#3b82f6;border-radius:3px}
       `}</style>
 
-      <Header isJD={isJD} setMode={setMode} setGeneratedResume={setGeneratedResume} setError={setError} timeTook={generationTime}/>
+      <Header isGenerating={isGenerating} isJD={isJD} setMode={setMode} setGeneratedResume={setGeneratedResume} setError={setError} isRunning={isTimerActive} resetKey={resetTimer} />
 
       <div className="no-print px-6 py-2 text-xs bg-slate-950 border-b border-slate-800 text-slate-400">
         {isJD
@@ -256,8 +251,8 @@ export default function App() {
               onClick={generate}
               disabled={isGenerating || !targetRole || !jobDescription}
               className={`w-full py-4 rounded-lg font-bold text-sm flex justify-center items-center gap-2 shadow-lg transition-all ${isGenerating || !targetRole || !jobDescription
-                  ? "bg-slate-700 text-slate-500 cursor-not-allowed"
-                  : "bg-gradient-to-r from-blue-600 to-indigo-600 text-white cursor-pointer hover:from-blue-500 hover:to-indigo-500 active:scale-95"
+                ? "bg-slate-700 text-slate-500 cursor-not-allowed"
+                : "bg-gradient-to-r from-blue-600 to-indigo-600 text-white cursor-pointer hover:from-blue-500 hover:to-indigo-500 active:scale-95"
                 }`}
             >
               {isGenerating ? (
@@ -318,8 +313,8 @@ export default function App() {
               <button
                 onClick={handleCopy}
                 className={`px-4 py-2 flex items-center gap-2 rounded-lg text-sm shadow-lg transition-all cursor-pointer ${copied
-                    ? "bg-emerald-600 border border-emerald-500 text-white"
-                    : "bg-slate-800 border border-slate-700 text-slate-300 hover:bg-slate-700 hover:text-white"
+                  ? "bg-emerald-600 border border-emerald-500 text-white"
+                  : "bg-slate-800 border border-slate-700 text-slate-300 hover:bg-slate-700 hover:text-white"
                   }`}
               >
                 {copied ? <Check size={15} /> : <Copy size={15} />}

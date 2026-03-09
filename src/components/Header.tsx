@@ -1,7 +1,8 @@
 import React from 'react';
 import { Briefcase, ToggleLeft, ToggleRight } from "lucide-react";
+import { Timer } from './Timer';
 
-function Header({isJD, setMode, setGeneratedResume, setError, timeTook}) {
+function Header({ isJD, setMode, setGeneratedResume, setError, isRunning, resetKey, isGenerating }) {
     return (
         <header className="no-print bg-slate-950 border-b border-slate-800 flex justify-between items-center px-6 py-4 shadow-lg">
             <div className="flex items-center gap-3">
@@ -10,20 +11,22 @@ function Header({isJD, setMode, setGeneratedResume, setError, timeTook}) {
                 </div>
                 <div>
                     <div className="font-bold text-lg text-white">
-                        Resume Builder <span className="text-blue-500">— Keerthana Hariharan</span><br/>
-                        {timeTook !== null && <span>Time took: {timeTook}</span>}
+                        Resume Builder <span className="text-blue-500">— Keerthana Hariharan</span>
                     </div>
                     <div className="text-xs text-slate-400">
                         4 Companies · 9+ Years · GCP & AWS Certified
                     </div>
                 </div>
             </div>
-
+            <div className="flex items-center gap-3">
+                <Timer isRunning={isRunning} resetKey={resetKey} />
+            </div>
             <div className="flex items-center gap-4">
                 <span className={`text-sm font-semibold ${isJD ? "text-blue-500" : "text-slate-500"}`}>
                     JD Mode
                 </span>
                 <button
+                    disabled={isGenerating}
                     onClick={() => {
                         setMode(isJD ? "tool" : "jd");
                         setGeneratedResume("");
