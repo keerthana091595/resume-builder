@@ -16,6 +16,7 @@ import { buildToolSystem, buildToolUser } from "./utils/ToolJDPrompt";
 import { ResumePreview } from "./components/ResumePreview";
 import { convertMarkdownToHtml, downloadWordDoc } from "./utils/Utils";
 import Header from "./components/Header";
+const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
 
 export default function App() {
 
@@ -107,7 +108,7 @@ const handleWord = () => {
 
     try {
       setIsTimerActive(true);
-      const ai = new GoogleGenAI({ apiKey: "AIzaSyCjyIlSUMMgHEVQpS2a0mJJz-blAPXNFBQ" });
+      const ai = new GoogleGenAI({ apiKey });
       const response = await ai.models.generateContent({
         model: "gemini-3-flash-preview",
         contents: [{
