@@ -61,13 +61,20 @@ export function ResumePreview({ text }) {
       continue;
     }
 
-      if (t.match(/^\*\*[^:]+:\*\*/)) {
-      const segs = t.replace(/\*\*([^:]+):\*\*/g, "\x00$1\x00:").split("\x00");
-      out.push(<p key={idx} className="text-[0.7rem] text-slate-800 mb-0.5 leading-tight text-justify w-full">
-        {segs.map((s, j) => j % 2 === 1 ? <strong key={j}>{s}</strong> : s)}
-      </p>);
+    // Technical Skills lines — **Label:** bold, tool content always plain text (strip any ** markers)
+    if (t.match(/^\*\*[^:]+:\*\*/)) {
+      const labelMatch = t.match(/^\*\*([^:]+):\*\*\s*(.*)/s);
+      if (labelMatch) {
+        const label = labelMatch[1];
+        const plainContent = labelMatch[2].replace(/\*\*(.*?)\*\*/g, "$1");
+        out.push(
+          <p key={idx} className="text-[0.7rem] text-slate-800 mb-0.5 leading-tight text-justify w-full">
+            <strong>{label}:</strong>{" "}{plainContent}
+          </p>
+        );
+      }
       continue;
-     }
+    }
 
     // Bullets - MORE INDENTATION
     if (t.startsWith("- ")) {

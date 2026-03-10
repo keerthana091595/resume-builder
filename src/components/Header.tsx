@@ -11,7 +11,7 @@ function Header({ isJD, setMode, setGeneratedResume, setError, isRunning, resetK
                 </div>
                 <div>
                     <div className="font-bold text-lg text-white">
-                        Resume Builder <span className="text-blue-500">— Keerthana Hariharan</span>
+                        Resume Builder
                     </div>
                     <div className="text-xs text-slate-400">
                         4 Companies · 9+ Years · GCP & AWS Certified

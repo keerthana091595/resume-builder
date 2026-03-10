@@ -641,8 +641,20 @@ Paragraph format. Exactly 6 categories in this exact order:
 5. **Databases & Messaging:** API protocols and data-fetching tools only: GraphQL, REST, WebSocket, Apollo Client, Axios. Do NOT list backend databases.
 6. **Testing & Observability:** All testing, E2E, and monitoring tools from all 4 projects.
 
-RULES:
-- Only category labels bold. No table format.
+BOLD RULES — APPLY EXACTLY:
+- Category labels ARE bold: **Programming Languages:**, **Frameworks & Libraries:**, etc.
+- Every tool name and version inside each paragraph IS bold: **React (18/17)**, **TypeScript (5/4)**, **Redux Toolkit**, **Jest (29/27)**
+- Connector words (and, with, for, including) are NOT bold
+- Version numbers written with slash format inside the bold: **React (18/17)** NOT React **(18/17)**
+
+EXAMPLE OF CORRECT FORMAT:
+**Programming Languages:** **TypeScript (5/4)**, **JavaScript (ES2022/ES2020)**
+**Frameworks & Libraries:** **React (18/17)**, **Redux Toolkit (1.9)**, **Material UI (5)**, **Storybook (7)**, **Tailwind CSS (3)**, **Styled Components (5)**, **React Router (6)**, **Axios (1.x)**, **Redux (4)**, **Redux Saga**, **NgRx**, **RxJS**, **Bootstrap (4/3)**, **SCSS**, **Webpack (5/4/3)**, **Vite**
+
+ENFORCEMENT: Every single tool word in the paragraph body MUST be wrapped in ** **. If any tool appears without bold markers → the entire Technical Skills section is invalid → regenerate it.
+
+OTHER FORMAT RULES:
+- No table format.
 - No blank lines between category paragraphs.
 - Extract ONLY from the 4 projects — no hallucinated tools.
 
@@ -767,14 +779,14 @@ PROFESSIONAL SUMMARY
 - [Bullet 10 - 20-25 words: Certifications]
 
 TECHNICAL SKILLS
-**Programming Languages:** [All languages, version format: TypeScript (5/4), JavaScript (ES2022/ES2020)]
-**Frameworks & Libraries:** [ALL frontend frameworks, component libs, state mgmt, routing, build tools with versions]
-**Cloud & Infrastructure:** [CDN/hosting only. GCP (Cloud CDN, Firebase), Azure (Azure CDN, Static Web Apps), AWS (S3, CloudFront)]
-**DevOps & CI/CD:** [All CI/CD tools from all 4 projects]
-**Databases & Messaging:** [API protocols only: GraphQL, REST, WebSocket, Apollo Client, Axios — NO backend databases]
-**Testing & Observability:** [All testing, E2E, and monitoring tools from all 4 projects]
+**Programming Languages:** [All languages with versions — EVERY tool name MUST be bold. Example: **TypeScript (5/4)**, **JavaScript (ES2022/ES2020)**]
+**Frameworks & Libraries:** [ALL frontend frameworks, component libs, state mgmt, routing, build tools — EVERY tool name MUST be bold. Example: **React (18/17)**, **Redux Toolkit**, **Material UI (5)**, **Vite**, **Webpack (5/4)**]
+**Cloud & Infrastructure:** [CDN/hosting only — EVERY tool name MUST be bold. Example: **GCP** (**Cloud CDN**, **Firebase**), **Azure** (**Azure CDN**, **Static Web Apps**), **AWS** (**S3**, **CloudFront**)]
+**DevOps & CI/CD:** [All CI/CD tools — EVERY tool name MUST be bold. Example: **GitHub Actions**, **Jenkins**, **Azure Pipelines**]
+**Databases & Messaging:** [API protocols only, NO backend databases — EVERY tool name MUST be bold. Example: **GraphQL**, **REST**, **WebSocket**, **Apollo Client**, **Axios**]
+**Testing & Observability:** [All testing and E2E tools — EVERY tool name MUST be bold. Example: **Jest (29/27)**, **React Testing Library**, **Cypress (12/6)**, **Jasmine**, **Karma**]
 
-[CRITICAL: Exact 6 category names in this order. One paragraph per category. Only category labels bold. No table. No blank lines between categories.]
+[CRITICAL: Exact 6 category names in this order. One paragraph per category. Category labels bold. EVERY individual tool name inside each paragraph MUST also be bold with ** **. Connector words like "and", "with", "including" are NOT bold. No table. No blank lines between categories.]
 
 PROFESSIONAL EXPERIENCE
 FLORIDA BLUE (BCBSFL) | SENIOR SOFTWARE ENGINEER | AUG 2023 – PRESENT

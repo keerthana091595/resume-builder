@@ -14,7 +14,7 @@ import { GoogleGenAI } from "@google/genai";
 import { buildJDSystem, buildJDUser } from "./utils/JDPrompt";
 import { buildToolSystem, buildToolUser } from "./utils/ToolJDPrompt";
 import { ResumePreview } from "./components/ResumePreview";
-import { convertMarkdownToHtml } from "./utils/Utils";
+import { convertMarkdownToHtml, downloadWordDoc } from "./utils/Utils";
 import Header from "./components/Header";
 
 export default function App() {
@@ -62,30 +62,11 @@ export default function App() {
     setShowDL(false);
   };
 
-  const handleWord = () => {
-    if (!generatedResume) return;
-    const body = convertMarkdownToHtml(generatedResume);
-    const html = `<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">
-    <head><meta charset="utf-8"><title>Resume - Keerthana Hariharan</title>
-    <style>
-    @page { margin: 1.27cm; }
-    body{font-family:Arial;font-size:10pt;color:#000;margin:0;}
-    h1{font-size:16pt;text-align:center;font-weight:bold;font-family:Arial;color:#000;}
-    h2{font-size:11pt;font-weight:bold;border-bottom:2px solid #2F5496;color:#2F5496;font-family:Arial;}
-    p{font-family:Arial;line-height:1.3;margin:0;padding:0;}
-    hr{border:none;border-top:1px solid #2F5496;}
-    </style>
-    </head><body>${body}</body></html>`;
-    const blob = new Blob(["\ufeff", html], { type: "application/msword" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = `Keerthana_H_${isJD ? "JD" : "Tool"}_${targetRole.replace(/[^a-z0-9]/gi, "_")}.doc`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    setShowDL(false);
-  };
+const handleWord = () => {
+  if (!generatedResume) return;
+  downloadWordDoc(generatedResume, isJD, targetRole);
+  setShowDL(false);
+};
 
   const generate = async () => {
     setError("");
@@ -126,7 +107,7 @@ export default function App() {
 
     try {
       setIsTimerActive(true);
-      const ai = new GoogleGenAI({ apiKey: "AIzaSyA0MpxYHWGeTs0O-Axbd1cWEZi_xgLt22s" });
+      const ai = new GoogleGenAI({ apiKey: "AIzaSyCjyIlSUMMgHEVQpS2a0mJJz-blAPXNFBQ" });
       const response = await ai.models.generateContent({
         model: "gemini-3-flash-preview",
         contents: [{
