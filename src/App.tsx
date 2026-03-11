@@ -11,8 +11,8 @@ import {
 } from "lucide-react";
 import { GoogleGenAI } from "@google/genai";
 
-import { buildJDSystem, buildJDUser } from "./utils/JDPrompt";
-import { buildToolSystem, buildToolUser } from "./utils/ToolJDPrompt";
+import { buildJDSystem, buildJDUser } from "./utils/FrontEnd_JDPrompt";
+import { buildToolSystem, buildToolUser } from "./utils/Tool_JDPrompt";
 import { ResumePreview } from "./components/ResumePreview";
 import { convertMarkdownToHtml, downloadWordDoc } from "./utils/Utils";
 import Header from "./components/Header";
