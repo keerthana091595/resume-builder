@@ -54,7 +54,7 @@ export function convertMarkdownToHtml(markdown) {
         output.push(`<table style="width:100%;border:none;margin:4pt 0 1pt 0;border-collapse:collapse;">
           <tr>
             <td style="font-size:11pt;font-weight:bold;font-family:Arial;color:#000;border:none;padding:0;">${parts[0]} | ${parts[1]}</td>
-            <td style="font-size:10pt;font-family:Arial;color:#555;text-align:right;border:none;padding:0;">${parts.slice(2).join(' | ')}</td>
+            <td style="font-size:10pt;font-weight:bold;font-family:Arial;color:#000;text-align:right;border:none;padding:0;">${parts.slice(2).join(' | ')}</td>
           </tr>
         </table>`);
         continue;
@@ -96,7 +96,14 @@ export function convertMarkdownToHtml(markdown) {
     // Bullets
     if (trimmed.startsWith('- ')) {
       const content = trimmed.substring(2).replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-      output.push(`<p style="font-size:10pt;font-family:Arial;color:#000;margin:0 0 1pt 0;padding-left:0.15in;line-height:1.3;text-align:justify;">&#8226; ${content}</p>`);
+      output.push(`<p style="font-size:10pt;font-family:Arial;color:#000;margin:0 0 1pt 0;margin-left:0.3in;text-indent:-0.15in;line-height:1.3;text-align:justify;mso-list:none;">&#8226;&nbsp;&nbsp;${content}</p>`);
+      continue;
+    }
+
+    // Summary bullets (lines starting with • symbol)
+    if (trimmed.startsWith('•')) {
+      const content = trimmed.substring(1).trim().replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+      output.push(`<p style="font-size:10pt;font-family:Arial;color:#000;margin:0 0 1pt 0;margin-left:0.3in;text-indent:-0.15in;line-height:1.3;text-align:justify;mso-list:none;">&#8226;&nbsp;&nbsp;${content}</p>`);
       continue;
     }
 
@@ -152,4 +159,5 @@ export const downloadWordDoc = (generatedResume, isJD, targetRole) => {
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
+  URL.revokeObjectURL(url);
 };
