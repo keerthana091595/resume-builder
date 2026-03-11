@@ -587,21 +587,21 @@ Use slashes ONLY in Technical Skills and Tech Stack sections:
 CONFIG-5: CHRONOLOGICAL ACCURACY
 
 Company Timelines:
-- Florida Blue   (Aug 2023–Present): MODERN ERA
-- Crate & Barrel (Feb 2020–May 2021): RECENT ERA
+- Florida Blue   (June 2021–Present): MODERN ERA
+- Crate And Barrel (Feb 2020–May 2021): RECENT ERA
 - US Foods       (May 2018–Jan 2020): MID ERA
-- Sixbase        (Sep 2016–Jun 2019): LEGACY ERA
+- Sixbase        (May 2016–Dec 2017): LEGACY ERA
 
 MATURITY RULE: Any tool used must have been released at least 2 years before the company start date.
 
 FRONTEND TOOL CHRONOLOGY — HARD LIMITS:
 
-Sixbase (2016-2019) — ALLOWED:
+Sixbase (2016-2017) — ALLOWED:
   Angular 4/5 ✓ | TypeScript 2 ✓ | NgRx ✓ | RxJS ✓
   Bootstrap 3 ✓ | SCSS ✓ | Jasmine ✓ | Karma ✓ | Protractor ✓
   Webpack 2/3 ✓ | Angular CLI ✓
 
-Sixbase (2016-2019) — FORBIDDEN:
+Sixbase (2016-2017) — FORBIDDEN:
   React Hooks ✗ (2019) | Redux Toolkit ✗ (2019) | Tailwind ✗ (2019)
   Vite ✗ (2020) | Cypress mainstream ✗ | React Query ✗ (2019)
 
@@ -789,7 +789,7 @@ TECHNICAL SKILLS
 [CRITICAL: Exact 6 category names in this order. One paragraph per category. Category labels bold. EVERY individual tool name inside each paragraph MUST also be bold with ** **. Connector words like "and", "with", "including" are NOT bold. No table. No blank lines between categories.]
 
 PROFESSIONAL EXPERIENCE
-FLORIDA BLUE (BCBSFL) | SENIOR SOFTWARE ENGINEER | AUG 2023 – PRESENT
+FLORIDA BLUE (BCBSFL) | SENIOR SOFTWARE ENGINEER | JUNE 2021 – PRESENT
 PROJECT DESCRIPTION: ${FPD.florida}
 
 KEY RESPONSIBILITIES:
@@ -823,7 +823,7 @@ KEY RESPONSIBILITIES:
   VARY vs previous companies. No backend bullets. 25-30 words each.]
 TECH STACK: [JD-relevant frontend tools + AWS S3/CloudFront only. Comma-separated. No bolding.]
 
-SIXBASE TECHNOLOGIES | SOFTWARE ENGINEER | SEP 2016 – JUN 2019
+SIXBASE TECHNOLOGIES | SOFTWARE ENGINEER | MAY 2016 – DEC 2017
 PROJECT DESCRIPTION: ${FPD.sixbase}
 
 KEY RESPONSIBILITIES:
