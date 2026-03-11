@@ -30,7 +30,7 @@ export function convertMarkdownToHtml(markdown) {
     }
 
     // Contact
-    if (/^9412704884/.test(escaped) || /^\+1/.test(escaped)) {
+    if (/^2068228191/.test(escaped) || /^\+1/.test(escaped)) {
       output.push(`<p style="font-size:10pt;text-align:center;mso-text-align:center;font-family:Arial;color:#000;margin:0 0 4pt 0;">${escaped}</p>`);
       continue;
     }

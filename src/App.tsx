@@ -63,11 +63,11 @@ export default function App() {
     setShowDL(false);
   };
 
-const handleWord = () => {
-  if (!generatedResume) return;
-  downloadWordDoc(generatedResume, isJD, targetRole);
-  setShowDL(false);
-};
+  const handleWord = () => {
+    if (!generatedResume) return;
+    downloadWordDoc(generatedResume, isJD, targetRole);
+    setShowDL(false);
+  };
 
   const generate = async () => {
     setError("");
