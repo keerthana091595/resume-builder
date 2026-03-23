@@ -96,8 +96,8 @@ Topics to cover:
 - Routing and navigation (React Router, Angular Router)
 
 Era-appropriate tools:
-- Florida Blue   (2021+):      React 18, TypeScript, Material UI 5, React Router 6, Storybook
-- Crate And Barrel  (2020-2021):  React 16/17, TypeScript 4, Ant Design, React Router 5
+- Florida Blue   (2021+):      React 16/17/18, TypeScript, Material UI 5, React Router 6, Storybook
+- Crate And Barrel  (2020-2021):  Angular 10/13, TypeScript 3, Bootstrap 4, Angular Router
 - US Foods       (2018-2020):  React 16, TypeScript 3, Bootstrap 4, React Router 4
 - Sixbase        (2016-2017):  Angular 4/5, TypeScript 2, Bootstrap 3, Angular Router
 
@@ -156,8 +156,8 @@ Topics to cover:
 - Secrets management and environment configuration
 
 Era-appropriate tools:
-- Florida Blue   (2021+):      GCP (GKE, Cloud SQL, GCS, Cloud CDN), Docker, Kubernetes
-- Crate And Barrel  (2020-2021):  Azure (AKS, Azure SQL, Blob Storage, Azure CDN), Docker, Kubernetes
+- Florida Blue   (2021+):      AWS (EKS, RDS, S3, CloudFront), Docker, Kubernetes
+- Crate And Barrel  (2020-2021):  AWS (EKS, RDS, S3, CloudFront), Docker, Kubernetes
 - US Foods       (2018-2020):  AWS (EKS, RDS, S3, CloudFront), Docker, Kubernetes
 - Sixbase        (2016-2017):  On-premise, Docker (if in JD), Jenkins, Nginx, Linux
 
@@ -184,8 +184,8 @@ Topics to cover:
 - Production incident support
 
 Era-appropriate tools:
-- Florida Blue   (2021+):      GCP Cloud Logging, Stackdriver, Prometheus, Grafana
-- Crate And Barrel  (2020-2021):  Azure Monitor, Application Insights, Splunk
+- Florida Blue   (2021+):      AWS CloudWatch, ELK Stack
+- Crate And Barrel  (2020-2021):  AWS CloudWatch, ELK Stack
 - US Foods       (2018-2020):  AWS CloudWatch, ELK Stack
 - Sixbase        (2016-2017):  Splunk, log4j, on-premise monitoring
 
@@ -214,15 +214,15 @@ CROSS-COMPANY TOOL ROTATION RULES
 RULE FS-1: FRAMEWORK CONSISTENCY PER COMPANY
 Each company must use ONE frontend framework throughout ALL bullets. Do NOT mix frameworks within a company.
 - Florida Blue:   React (hooks-based, modern) + Java/Spring Boot 3
-- Crate And Barrel: React (slightly older patterns) + Java/Spring Boot 2
+- Crate And Barrel: Angular 10/13 (slightly older patterns) + Java/Spring Boot 2
 - US Foods:       React 16 (class components acceptable) + Java/Spring Boot 2
 - Sixbase:        Angular 4/5 (pre-2020 era) + Java/Spring Boot 1.x
 
 RULE FS-2: STATE MANAGEMENT MUST DIFFER ACROSS COMPANIES
 WRONG: All 4 companies use Redux
 CORRECT:
-- Florida Blue:   Redux + Redux Toolkit + React Query
-- Crate And Barrel : Redux + Redux Saga
+- Florida Blue:   Redux + React Query
+- Crate And Barrel : NgRx + RxJS
 - US Foods:       Redux + Redux Thunk
 - Sixbase:        NgRx + RxJS
 
@@ -274,7 +274,7 @@ Example — Bullet 1 (Frontend/UI):
 WRONG: All 4 companies start with "Built reusable components using React..."
 CORRECT:
 - Florida Blue Bullet 1:   "Architected a scalable design system using React and TypeScript..."
-- Crate And Barrel  Bullet 1: "Developed atomic UI components using React and Ant Design..."
+- Crate And Barrel  Bullet 1: "Developed atomic UI components using Angular and SCSS..."
 - US Foods Bullet 1:       "Standardized form components using React and Bootstrap..."
 - Sixbase Bullet 1:        "Built modular UI widgets using Angular and SCSS..."
 
@@ -517,8 +517,8 @@ DIMENSION 3 — COMPLEXITY LEVEL:
   Vary sophistication across eras.
   - Sixbase (2016-2017):    Simple REST + JDBC + monolith patterns
   - US Foods (2018-2020):   Service layer + Spring Boot 2 + MySQL
-  - Crate And Barrel  (2020-2021): Microservices + Spring Boot 2 + Azure
-  - Florida Blue (2021+):   Cloud-native + Spring Boot 3 + GCP + GraphQL
+  - Crate And Barrel  (2020-2021): Microservices + Spring Boot 2 + AWS
+  - Florida Blue (2021+):   Cloud-native + Spring Boot 3 + AWS + GraphQL
 
 DIMENSION 4 — BUSINESS CONTEXT:
   Same task, different business justifications.
@@ -599,8 +599,8 @@ TIER 4: CONFIGURATION RULES
 ========================================
 
 CONFIG-1: FIXED CLOUDS PER COMPANY
-- Florida Blue   = GCP only   (GKE, Cloud SQL, GCS, Cloud CDN, Cloud Logging)
-- Crate And Barrel  = Azure only (AKS, Azure SQL, Blob Storage, Azure CDN, Azure Monitor)
+- Florida Blue   = AWS only   (EKS, RDS, S3, CloudFront, CloudWatch)
+- Crate And Barrel  = AWS only   (EKS, RDS, S3, CloudFront, CloudWatch)
 - US Foods       = AWS only   (EKS, RDS, S3, CloudFront, CloudWatch)
 - Sixbase        = On-premise only (Nginx, Jenkins, Linux, local servers)
 
@@ -663,7 +663,7 @@ US Foods (2018-2020) — FORBIDDEN:
   GitHub Actions ✗ (Nov 2019 only) | FastAPI ✗ (2018)
 
 Crate And Barrel  (2020-2021) — ALLOWED:
-  Java 11/17 ✓ | Spring Boot 2 ✓ | React 16/17 ✓ | TypeScript 4 ✓
+  Java 11/17 ✓ | Spring Boot 2 ✓ | Angular 10/13 ✓ | TypeScript 4 ✓
   PostgreSQL 12/13 ✓ | Redis 6 ✓ | Webpack 4 ✓ | Docker ✓ | Kubernetes ✓
   Azure DevOps ✓ | JUnit 5 ✓ | Mockito 3 ✓ | Cypress 6 ✓
 
@@ -685,7 +685,7 @@ Paragraph format. Exactly 6 categories in this exact order:
 
 1. **Programming Languages:** All languages from all 4 projects. Version format: Java (21/17/11/8), TypeScript (5/4/3/2)
 2. **Frameworks & Libraries:** ALL frameworks, libraries, ORMs, state mgmt, routing, build tools. Largest category.
-3. **Cloud & Infrastructure:** Group by cloud: GCP (GKE, Cloud SQL, GCS, Cloud CDN), Azure (AKS, Azure SQL, Blob Storage, Azure CDN), AWS (EKS, RDS, S3, CloudFront). Include Docker, Kubernetes if used.
+3. **Cloud & Infrastructure:** Group by cloud: AWS (EKS, RDS, S3, CloudFront). Include Docker, Kubernetes, GCP (GKE, Cloud SQL, GCS, Cloud CDN) if used.
 4. **DevOps & CI/CD:** All CI/CD and DevOps tools from all 4 projects.
 5. **Databases & Messaging:** Databases, ORMs, caching, messaging: PostgreSQL, MySQL, Oracle, Redis, GraphQL, REST, WebSocket, Kafka (if in JD).
 6. **Testing & Observability:** All unit, integration, E2E, and monitoring tools from all 4 projects.
@@ -734,7 +734,7 @@ EXAMPLE SUMMARY FOR FULL-STACK ENGINEER:
 
 • Extensive expertise in frontend architecture with **React**, **Redux Toolkit**, **Material UI (5)**, and **TypeScript** delivering 60+ reusable components and micro frontend modules across enterprise platforms
 
-• Proficient in backend API development using **Spring Boot**, **Spring Security**, **JPA/Hibernate**, and **GraphQL** building scalable microservices handling 2M+ transactions daily across GCP, Azure, and AWS
+• Proficient in backend API development using **Spring Boot**, **Spring Security**, **JPA/Hibernate**, and **GraphQL** building scalable microservices handling 2M+ transactions daily across AWS data centers
 
 • Skilled in full-stack testing with **JUnit 5**, **Mockito**, **Jest**, **React Testing Library**, and **Cypress** achieving 87% code coverage and reducing production defects by 35%
 
@@ -742,13 +742,11 @@ EXAMPLE SUMMARY FOR FULL-STACK ENGINEER:
 
 • Boosted frontend Lighthouse score from 64 to 92 by implementing code splitting, lazy loading, and asset compression reducing bundle size by 38% for the insurance portal
 
-• Reduced deployment cycle time by 60% by establishing GitHub Actions CI/CD pipelines with automated test gates and blue-green deployment strategies across GCP and Azure
+• Reduced deployment cycle time by 60% by establishing GitHub Actions CI/CD pipelines with automated test gates and blue-green deployment strategies across AWS data centers
 
 • Implemented WCAG 2.1 AA and ADA-compliant UI components and enforced PCI-DSS-compliant backend data flows ensuring regulatory adherence across all member-facing services
 
 • Collaborated with UX designers, product managers, and QA teams across 4 time zones using Jira and Figma to align feature delivery with sprint goals and design standards
-
-• Holds GCP Certified Solutions Architect and AWS Certified Associate Engineer certifications demonstrating cloud deployment expertise across full-stack application infrastructure
 
 VERIFICATION:
 [ ] Exactly 10 bullets, each 20-25 words?
@@ -849,21 +847,21 @@ KEY RESPONSIBILITIES:
   Phase 2: Backend APIs & Microservices (Java, Spring Boot 3, Spring Security, GraphQL) — 7 bullets
   Phase 3: Business Logic & Data Layer (JPA/Hibernate, PostgreSQL, Redis, Spring Data JPA) — 5 bullets
   Phase 4: Testing & QA (JUnit 5, Mockito, Jest, React Testing Library, Cypress) — 3 bullets — AT LEAST ONE WITH COVERAGE %
-  Phase 5: Infrastructure & Cloud (GCP: GKE, Cloud SQL, GCS, Docker, Kubernetes) — 3 bullets
-  Phase 6: CI/CD (GitHub Actions, Google Cloud Build) — 2 bullets
-  Phase 7: Deployment & Monitoring (GCP Cloud Logging, Stackdriver, Prometheus) — 2 bullets
+  Phase 5: Infrastructure & Cloud AWS (EKS, RDS, S3, CloudFront) — 3 bullets
+  Phase 6: CI/CD (GitHub Actions) — 2 bullets
+  Phase 7: Deployment & Monitoring (AWS Cloud Watch, Cloud Trail, Prometheus) — 2 bullets
   Phase 8: Performance & Security (caching, JWT, OAuth2, optimization) — 2 bullets — EACH MUST HAVE A METRIC
   Phase 9: Collaboration (Jira, Figma, code reviews, mentoring) — 1 bullet
-  RULES: No versions in bullets. Wrap EVERY tool name in ** ** for bold. GCP services only. Active voice. 25-30 words each.]
-TECH STACK: [JD-relevant full-stack tools + GCP services only. Comma-separated. No bolding.]
+  RULES: No versions in bullets. Wrap EVERY tool name in ** ** for bold. AWS services only. Active voice. 25-30 words each.]
+TECH STACK: [JD-relevant full-stack tools + AWS services only. Comma-separated. No bolding.]
 
 CRATE AND BARREL | SENIOR SOFTWARE ENGINEER | FEB 2020 – MAY 2021
 PROJECT DESCRIPTION: ${FPD.crateAndBarrel}
 
 KEY RESPONSIBILITIES:
-  [EXACTLY 30 bullets — same phase order. Azure services only. React 16/17 + Spring Boot 2 era tools.
+  [EXACTLY 30 bullets — same phase order. AWS services only. Angular 10/13 + Spring Boot 2 era tools.
   VARY tools, sentence patterns, and verbs vs Florida Blue. Wrap EVERY tool name in ** ** for bold. 25-30 words each.]
-TECH STACK: [JD-relevant full-stack tools + Azure services only. Comma-separated. No bolding.]
+TECH STACK: [JD-relevant full-stack tools + AWS services only. Comma-separated. No bolding.]
 
 US FOODS | SOFTWARE ENGINEER | MAY 2018 – JAN 2020
 PROJECT DESCRIPTION: ${FPD.usfoods}
