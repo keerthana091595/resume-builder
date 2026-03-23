@@ -73,11 +73,18 @@ export function convertMarkdownToHtml(markdown) {
     }
 
     // TECH STACK
-    if (/^TECH STACK:/i.test(escaped)) {
-      const match = escaped.match(/^(TECH STACK):\s*(.*)$/i);
+    if (/^\\[^:]+:\\/.test(trimmed)) {
+      const match = trimmed.match(/^\\([^:]+):\\\s*(.*)$/);
       if (match) {
-        const content = match[2].replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-        output.push(`<p style="font-size:10pt;font-family:Arial;color:#000;margin:1pt 0;"><strong>${match[1]}:</strong> ${content}</p>`);
+        const label = match[1];
+        const tools = match[2];
+        output.push(`<table style="width:100%;border:none;border-collapse:collapse;margin:0 0 2pt 0;">
+          <tr>
+            <td style="width:140px;font-size:10pt;font-family:Arial;font-weight:bold;border:none;padding:2pt 0;vertical-align:middle;text-align:left;white-space:nowrap;">${label}</td>
+            <td style="width:20px;font-size:10pt;font-family:Arial;border:none;padding:2pt 0;vertical-align:middle;text-align:center;">:</td>
+            <td style="font-size:10pt;font-family:Arial;border:none;padding:2pt 0;vertical-align:middle;text-align:justify;line-height:1.3;">${tools}</td>
+          </tr>
+        </table>`);
       }
       continue;
     }
