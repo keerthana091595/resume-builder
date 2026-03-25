@@ -681,25 +681,16 @@ Rules:
 
 EXAMPLE SUMMARY FOR FRONTEND ENGINEER:
 
-• Senior Software Engineer having 9+ years of experience building frontend applications using **React (18/17)**, **TypeScript (5/4)**, and **Redux (4)** across healthcare, e-commerce, food distribution, and wellness industries
-
-• Extensive expertise in design systems and component architecture with **React**, **Material UI (5)**, **Storybook (7)**, and **Module Federation** delivering 60+ reusable components across micro frontend platforms
-
-• Proficient in state management using **Redux Toolkit**, **React Query**, and **NgRx** with **RxJS** handling complex async data flows serving 2M+ portal users across GCP, Azure, and AWS deployments
-
-• Skilled in frontend performance optimization using **Vite**, **Webpack 5**, and React lazy loading reducing bundle sizes by 40% and improving Core Web Vitals across healthcare and e-commerce portals
-
-• Delivered accessible, WCAG 2.1 AA-compliant interfaces using ARIA attributes, semantic HTML, and axe tooling ensuring ADA compliance for 100% of member-facing pages
-
-• Achieved 87% code coverage writing tests with **Jest (29)**, **React Testing Library**, and **Cypress (12)** reducing production defects by 35% across critical enrollment workflows
-
-• Migrated legacy AngularJS applications to React 18 reducing technical debt by 60% while maintaining zero downtime for 500K+ monthly active users in e-commerce
-
-• Implemented WCAG 2.1 and ADA accessibility standards across all healthcare portals and coordinated security reviews ensuring compliance for member-facing digital products
-
-• Collaborated with UX designers, backend engineers, and product teams across 4 time zones using Jira and Figma to align component delivery with sprint goals and design specs
-
-• Holds GCP Certified Solutions Architect and AWS Certified Associate Engineer certifications demonstrating cloud deployment expertise for frontend applications
+• Senior Software Engineer having 9+ years of experience building frontend applications using **React (18/17)**, **TypeScript (5/4)**, and **Redux (4)** across healthcare, e-commerce, food distribution, and wellness industries.
+• Extensive expertise in design systems and component architecture with **React**, **Material UI (5)**, **Storybook (7)**, and **Module Federation** delivering 60+ reusable components across micro frontend platforms.
+• Proficient in state management using **Redux Toolkit**, **React Query**, and **NgRx** with **RxJS** handling complex async data flows serving 2M+ portal users across GCP, Azure, and AWS deployments.
+• Skilled in frontend performance optimization using **Vite**, **Webpack 5**, and React lazy loading reducing bundle sizes by 40% and improving Core Web Vitals across healthcare and e-commerce portals.
+• Delivered accessible, WCAG 2.1 AA-compliant interfaces using ARIA attributes, semantic HTML, and axe tooling ensuring ADA compliance for 100% of member-facing pages.
+• Achieved 87% code coverage writing tests with **Jest (29)**, **React Testing Library**, and **Cypress (12)** reducing production defects by 35% across critical enrollment workflows.
+• Migrated legacy AngularJS applications to React 18 reducing technical debt by 60% while maintaining zero downtime for 500K+ monthly active users in e-commerce.
+• Implemented WCAG 2.1 and ADA accessibility standards across all healthcare portals and coordinated security reviews ensuring compliance for member-facing digital products.
+• Collaborated with UX designers, backend engineers, and product teams across 4 time zones using Jira and Figma to align component delivery with sprint goals and design specs.
+• Holds GCP Certified Solutions Architect and AWS Certified Associate Engineer certifications demonstrating cloud deployment expertise for frontend applications.
 
 VERIFICATION:
 [ ] Exactly 10 bullets, each 20-25 words?
