@@ -63,9 +63,9 @@ export default function App() {
     setShowDL(false);
   };
 
-  const handleWord = () => {
+  const handleWord = async () => {
     if (!generatedResume) return;
-    downloadWordDoc(generatedResume, isJD, targetRole);
+    await downloadWordDoc(generatedResume, isJD, targetRole);
     setShowDL(false);
   };
 
