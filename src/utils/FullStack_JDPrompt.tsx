@@ -96,9 +96,9 @@ Topics to cover:
 - Routing and navigation (React Router, Angular Router)
 
 Era-appropriate tools:
-- Florida Blue   (2021+):      React 16/17/18, TypeScript, Material UI 5, React Router 6, Storybook
+- Florida Blue   (2021+):      Angular 10/13, TypeScript 3, Bootstrap 4, Angular Router
 - Crate And Barrel  (2020-2021):  Angular 10/13, TypeScript 3, Bootstrap 4, Angular Router
-- US Foods       (2018-2020):  React 16, TypeScript 3, Bootstrap 4, React Router 4
+- US Foods       (2018-2020):  Angular 10/13, TypeScript 3, Bootstrap 4, Angular Router
 - Sixbase        (2016-2017):  Angular 4/5, TypeScript 2, Bootstrap 3, Angular Router
 
 PHASE 2 — Backend APIs & Microservices
@@ -213,17 +213,17 @@ CROSS-COMPANY TOOL ROTATION RULES
 
 RULE FS-1: FRAMEWORK CONSISTENCY PER COMPANY
 Each company must use ONE frontend framework throughout ALL bullets. Do NOT mix frameworks within a company.
-- Florida Blue:   React (hooks-based, modern) + Java/Spring Boot 3
+- Florida Blue:   Angular 10/13 + Java/Spring Boot 3
 - Crate And Barrel: Angular 10/13 (slightly older patterns) + Java/Spring Boot 2
-- US Foods:       React 16 (class components acceptable) + Java/Spring Boot 2
+- US Foods:       Angular + Java/Spring Boot 2
 - Sixbase:        Angular 4/5 (pre-2020 era) + Java/Spring Boot 1.x
 
 RULE FS-2: STATE MANAGEMENT MUST DIFFER ACROSS COMPANIES
 WRONG: All 4 companies use Redux
 CORRECT:
-- Florida Blue:   Redux + React Query
+- Florida Blue:   NgRx + RxJS
 - Crate And Barrel : NgRx + RxJS
-- US Foods:       Redux + Redux Thunk
+- US Foods:       NgRx + RxJS
 - Sixbase:        NgRx + RxJS
 
 RULE FS-3: BACKEND FRAMEWORK ERA CONSISTENCY
@@ -273,9 +273,9 @@ Rule: Bullet at position N across 4 companies MUST use DIFFERENT tools.
 Example — Bullet 1 (Frontend/UI):
 WRONG: All 4 companies start with "Built reusable components using React..."
 CORRECT:
-- Florida Blue Bullet 1:   "Architected a scalable design system using React and TypeScript..."
-- Crate And Barrel  Bullet 1: "Developed atomic UI components using Angular and SCSS..."
-- US Foods Bullet 1:       "Standardized form components using React and Bootstrap..."
+- Florida Blue Bullet 1:   "Architected a scalable design system using Angular and TypeScript..."
+- Crate And Barrel  Bullet 1: "Developed atomic UI components using Angular and Material UI..."
+- US Foods Bullet 1:       "Standardized form components using Angular and Bootstrap..."
 - Sixbase Bullet 1:        "Built modular UI widgets using Angular and SCSS..."
 
 ENFORCEMENT:
@@ -659,7 +659,7 @@ US Foods (2018-2020) — ALLOWED:
   JUnit 4/5 ✓ | Mockito 2 ✓ | Selenium ✓ | Jenkins ✓ | Docker ✓
 
 US Foods (2018-2020) — FORBIDDEN:
-  Spring Boot 3 ✗ | Java 17 ✗ | React Hooks mainstream ✗ | Redux Toolkit ✗
+  Spring Boot 3 ✗ | Java 17 ✗ | Angular ✗ | TypeScript ✗
   GitHub Actions ✗ (Nov 2019 only) | FastAPI ✗ (2018)
 
 Crate And Barrel  (2020-2021) — ALLOWED:
@@ -671,7 +671,7 @@ Crate And Barrel  (2020-2021) — FORBIDDEN:
   Spring Boot 3 ✗ | Java 21 ✗ | React 18 ✗ | Vite mainstream ✗
 
 Florida Blue (2021–Present) — ALLOWED:
-  Java 17/21 ✓ | Spring Boot 3 ✓ | React 17/18 ✓ | TypeScript 4/5 ✓
+  Java 17/21 ✓ | Spring Boot 3 ✓ | Angular 10/13 ✓ | TypeScript 4/5 ✓
   PostgreSQL 14+ ✓ | Redis 7 ✓ | Vite ✓ | Kubernetes ✓ | Docker ✓
   GitHub Actions ✓ | JUnit 5 ✓ | Mockito 4 ✓ | Cypress 12 ✓ | Playwright ✓
   GraphQL ✓ | gRPC ✓ | Spring Security 6 ✓
@@ -843,7 +843,7 @@ PROJECT DESCRIPTION: ${FPD.florida}
 
 KEY RESPONSIBILITIES:
   [EXACTLY 30 bullets — Full-Stack Engineer SDLC flow:
-  Phase 1: Frontend/UI & Component Architecture (React, TypeScript, Material UI, React Router) — 5 bullets
+  Phase 1: Frontend/UI & Component Architecture (Angular, Java Script/Type Script, Material UI, NgRx) — 5 bullets
   Phase 2: Backend APIs & Microservices (Java, Spring Boot 3, Spring Security, GraphQL) — 7 bullets
   Phase 3: Business Logic & Data Layer (JPA/Hibernate, PostgreSQL, Redis, Spring Data JPA) — 5 bullets
   Phase 4: Testing & QA (JUnit 5, Mockito, Jest, React Testing Library, Cypress) — 3 bullets — AT LEAST ONE WITH COVERAGE %

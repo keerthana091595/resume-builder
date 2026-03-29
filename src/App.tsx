@@ -14,7 +14,8 @@ import { GoogleGenAI } from "@google/genai";
 import { buildJDSystem, buildJDUser } from "./utils/FullStack_JDPrompt";
 import { buildToolSystem, buildToolUser } from "./utils/Tool_JDPrompt";
 import { ResumePreview } from "./components/ResumePreview";
-import { convertMarkdownToHtml, downloadWordDoc } from "./utils/Utils";
+import { downloadWordDoc } from "./utils/downloadWordDocUtil";
+import { convertMarkdownToHtml } from "./utils/resumePreviewConverter";
 import Header from "./components/Header";
 const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
 
